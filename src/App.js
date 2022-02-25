@@ -8,6 +8,7 @@ class App extends React.Component {
     super();
     this.onInputChange = this.onInputChange.bind(this);
     this.isSaveButtonDisabled = this.isSaveButtonDisabled.bind(this);
+    this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
 
     this.state = {
       cardName: '',
@@ -20,6 +21,7 @@ class App extends React.Component {
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: true,
+      cards: [],
     };
   }
 
@@ -30,6 +32,40 @@ class App extends React.Component {
     this.setState(() => ({
       [name]: value,
     }), () => this.isSaveButtonDisabled());
+  }
+
+  onSaveButtonClick() {
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cards,
+    } = this.state;
+
+    const myCard = {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+    };
+
+    this.setState({
+      cards: [...cards, myCard],
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: 'normal',
+    });
   }
 
   isSaveButtonDisabled() {
@@ -54,7 +90,6 @@ class App extends React.Component {
     if (cardAttr2 > maxAllowedPower || cardAttr2 < minAllowedPower) btnDisabled = true;
     if (cardAttr3 > maxAllowedPower || cardAttr3 < minAllowedPower) btnDisabled = true;
 
-    console.log(btnDisabled);
     this.setState(() => ({
       isSaveButtonDisabled: btnDisabled,
     }));
@@ -89,6 +124,7 @@ class App extends React.Component {
           hasTrunfo={ hasTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onInputChange={ this.onInputChange }
+          onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card
           cardName={ cardName }
