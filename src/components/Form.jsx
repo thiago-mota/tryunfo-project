@@ -48,7 +48,7 @@ class Form extends React.Component {
         </label>
 
         <label htmlFor="attr1">
-          Atributo 1:
+          STR
           <input
             id="attr1"
             name="cardAttr1"
@@ -61,7 +61,7 @@ class Form extends React.Component {
         </label>
 
         <label htmlFor="attr2">
-          Atributo 2:
+          INT
           <input
             id="attr2"
             name="cardAttr2"
@@ -74,7 +74,7 @@ class Form extends React.Component {
         </label>
 
         <label htmlFor="attr3">
-          Atributo 3:
+          DEX:
           <input
             id="attr3"
             name="cardAttr3"
