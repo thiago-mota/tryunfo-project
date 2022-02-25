@@ -4,9 +4,18 @@ import React from 'react';
 class Form extends React.Component {
   render() {
     const {
-      cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled,
-      onInputChange, onSaveButtonClick,
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      hasTrunfo,
+      isSaveButtonDisabled,
+      onInputChange,
+      onSaveButtonClick,
     } = this.props;
 
     return (
@@ -14,6 +23,7 @@ class Form extends React.Component {
 
         <label htmlFor="name">
           <input
+            name="cardName"
             type="text"
             data-testid="name-input"
             placeholder="Insira o nome da carta"
@@ -24,6 +34,7 @@ class Form extends React.Component {
 
         <label htmlFor="description">
           <input
+            name="cardDescription"
             type="textarea"
             data-testid="description-input"
             placeholder="Insira a descrição da carta"
@@ -34,6 +45,7 @@ class Form extends React.Component {
 
         <label htmlFor="attr1">
           <input
+            name="cardAttr1"
             type="number"
             data-testid="attr1-input"
             placeholder="1º atributo"
@@ -44,6 +56,7 @@ class Form extends React.Component {
 
         <label htmlFor="attr2">
           <input
+            name="cardAttr2"
             type="number"
             data-testid="attr2-input"
             placeholder="2º atributo"
@@ -54,6 +67,7 @@ class Form extends React.Component {
 
         <label htmlFor="attr3">
           <input
+            name="cardAttr3"
             type="number"
             data-testid="attr3-input"
             placeholder="3º atributo"
@@ -64,6 +78,7 @@ class Form extends React.Component {
 
         <label htmlFor="image">
           <input
+            name="cardImage"
             type="text"
             data-testid="image-input"
             placeholder="Caminho da imagem"
@@ -74,6 +89,7 @@ class Form extends React.Component {
 
         <label htmlFor="rare">
           <select
+            name="cardRare"
             data-testid="rare-input"
             value={ cardRare }
             onChange={ onInputChange }
@@ -86,15 +102,17 @@ class Form extends React.Component {
 
         <label htmlFor="trunfo">
           <input
+            name="cardTrunfo"
             type="checkbox"
             data-testid="trunfo-input"
             value={ cardTrunfo }
             onChange={ onInputChange }
-            checked
+            checked={ cardTrunfo }
           />
         </label>
 
         <button
+          name="button"
           type="button"
           data-testid="save-button"
           disabled={ isSaveButtonDisabled }
