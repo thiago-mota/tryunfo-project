@@ -44,6 +44,7 @@ class App extends React.Component {
       cardImage,
       cardRare,
       cards,
+      cardTrunfo,
     } = this.state;
 
     const myCard = {
@@ -66,6 +67,12 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
     });
+
+    if (cardTrunfo) {
+      return this.setState({
+        hasTrunfo: true,
+      });
+    }
   }
 
   isSaveButtonDisabled() {
